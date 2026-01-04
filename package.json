@@ -1,0 +1,83 @@
+{
+  "name": "spine-expo-usedom",
+  "version": "0.1.0",
+  "description": "Spine player for Expo",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
+  "types": "lib/typescript/index.d.ts",
+  "react-native": "src/index.tsx",
+  "source": "src/index.tsx",
+  "files": [
+    "src",
+    "lib",
+    "android",
+    "ios",
+    "cpp",
+    "*.podspec",
+    "!lib/typescript/example",
+    "!ios/build",
+    "!android/build",
+    "!android/gradle",
+    "!android/gradlew",
+    "!android/gradlew.bat",
+    "!android/local.properties",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__",
+    "!**/.*"
+  ],
+  "scripts": {
+    "start": "cd example && npx expo start",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "prepare": "bob build",
+    "build": "bob build"
+  },
+  "keywords": [
+    "react-native",
+    "expo",
+    "spine"
+  ],
+  "author": "Lipton",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "@types/react": "~19.1.0",
+    "eslint": "^9.25.0",
+    "eslint-config-expo": "~10.0.0",
+    "expo": "~54.0.29",
+    "react": "19.1.0",
+    "react-native": "0.81.5",
+    "react-native-builder-bob": "^0.30.0",
+    "typescript": "~5.9.2"
+  },
+  "peerDependencies": {
+    "expo": "*",
+    "react": "*"
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
+    ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "expo",
+      "prettier"
+    ]
+  },
+  "dependencies": {
+    "@esotericsoftware/spine-webcomponents": "^4.2.96"
+  }
+}

@@ -1,0 +1,21 @@
+# NPM ignore file
+# Files to ignore when publishing to npm
+
+/.github
+/.vscode
+/example
+/src/__tests__
+/src/__fixtures__
+/src/__mocks__
+.eslintrc.js
+.gitattributes
+.gitignore
+.prettierrc.js
+app.json
+babel.config.js
+metro.config.js
+tsconfig.json
+tsconfig.build.json
+yarn.lock
+package-lock.json
+*.log
