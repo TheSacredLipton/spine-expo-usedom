@@ -1,28 +1,39 @@
-# Spine Expo ('use dom')
+# spine-expo-usedom
 
-*この README は生成 AI によって作成されました。*
+Run **Spine Web Components** in React Native (iOS/Android) using Expo's **DOM Components** (`'use dom'`).
 
-Expo の **DOM Components (`'use dom'`)** 機能を使用して、React Native アプリ（iOS/Android）内で **Spine Web Components** を動作させるパッケージです。
+> ⚠️ **Note**: This package relies on Expo DOM Components, so it only supports **iOS** and **Android**. Web (react-native-web) is not supported.
+> Requires **Expo SDK 52** or higher.
 
-> ⚠️ **注意**: 本パッケージは Expo DOM Components を使用しているため、**iOS** および **Android** 専用です。Web (react-native-web) はサポートしていません。
+## 🚀 Features
 
-## 🚀 特徴
+- **Expo DOM Components**: Seamlessly use Web technologies (WebGL, etc.) within native apps.
+- **Spine Web Components**: Play Spine animations using the official web components.
 
-- **Expo DOM Components**: ネイティブアプリ内でWeb技術（WebGLなど）をシームレスに利用。
-- **Spine Web Components**: 公式のWebコンポーネントを使用してSpineアニメーションを再生。
-
-## 📦 インストール
+## 📦 Installation
 
 ```bash
 npm install spine-expo-usedom
 ```
 
-## 💻 使い方
+## 💻 Usage
 
-1. **Spineアセットの配置**
-   Expoプロジェクトの `public` フォルダ内に、Spineのアセット（.json, .atlas, .png）を配置します。
+### 1. Place Spine Assets
+Place your Spine assets (`.json` or `.skel`, `.atlas`, `.png`) in the `public` folder of your Expo project.
 
-2. **コンポーネントの使用**
+Example structure:
+```
+my-app/
+├── public/
+│   └── spineboy/
+│       ├── spineboy-pro.json
+│       ├── spineboy.atlas
+│       └── spineboy.png
+├── App.tsx
+└── ...
+```
+
+### 2. Use the Component
 
 ```tsx
 import SpineView from 'spine-expo-usedom';
@@ -32,9 +43,11 @@ export default function App() {
   return (
     <View style={{ flex: 1 }}>
       <SpineView
-        skeleton="/spineboy/export/spineboy-pro.json"
-        atlas="/spineboy/export/spineboy.atlas"
+        skeleton="/spineboy/spineboy-pro.json"
+        atlas="/spineboy/spineboy.atlas"
         animation="run"
+        skin="default"
+        fit="contain"
         dom={{ style: { width: '100%', height: '100%' } }}
       />
     </View>
@@ -42,6 +55,18 @@ export default function App() {
 }
 ```
 
+## 🔧 Props
+
+| Prop                    | Type                                          | Default      | Description                                                  |
+| ----------------------- | --------------------------------------------- | ------------ | ------------------------------------------------------------ |
+| `skeleton`              | `string`                                      | **Required** | Path to the skeleton data file (`.json` or `.skel`).         |
+| `atlas`                 | `string`                                      | **Required** | Path to the atlas file (`.atlas`).                           |
+| `animation`             | `string`                                      | `undefined`  | Name of the animation to play.                               |
+| `skin`                  | `string`                                      | `undefined`  | Name of the skin to use.                                     |
+| `fit`                   | `'cover' \| 'contain' \| 'loading' \| 'none'` | `undefined`  | How the skeleton should fit into the viewport.               |
+| `debug`                 | `boolean`                                     | `false`      | Whether to show debug information (bones, regions, etc.).    |
+| `preserveDrawingBuffer` | `boolean`                                     | `true`       | Whether to preserve the drawing buffer.                      |
+| `dom`                   | `DOMProps`                                    | `undefined`  | Props passed to the underlying Expo DOM Component container. |
 
 ## 📝 License
 

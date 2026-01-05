@@ -8,6 +8,7 @@
 /src/__fixtures__
 /src/__mocks__
 .eslintrc.js
+eslint.config.js
 .gitattributes
 .gitignore
 .prettierrc.js
@@ -18,4 +19,5 @@ tsconfig.json
 tsconfig.build.json
 yarn.lock
 package-lock.json
+download_assets.sh
 *.log

@@ -35,10 +35,24 @@
   "keywords": [
     "react-native",
     "expo",
-    "spine"
+    "spine",
+    "animation",
+    "use dom",
+    "web-components"
   ],
-  "author": "Lipton",
+  "author": {
+    "name": "TheSacredLipton",
+    "url": "https://www.npmjs.com/~thesacredlipton"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheSacredLipton/expo-spine-usedom.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheSacredLipton/expo-spine-usedom/issues"
+  },
+  "homepage": "https://github.com/TheSacredLipton/expo-spine-usedom#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
