@@ -1,5 +1,4 @@
 import React from 'react';
-import '@esotericsoftware/spine-webcomponents';
 export interface SpineViewProps {
     dom?: import('expo/dom').DOMProps;
     /** Path to the skeleton data file (.json or .skel) */
@@ -18,8 +17,10 @@ export interface SpineViewProps {
     preserveDrawingBuffer?: boolean;
     /** Raw assets data for embedding */
     rawData?: string;
+    /** Path to the spine-webcomponents.min.js file */
+    spineWebComponentSrc?: string;
     /** Any other attributes for spine-skeleton */
     [key: string]: any;
 }
-export default function SpineView({ dom, skeleton, atlas, skin, preserveDrawingBuffer, ...rest }: SpineViewProps): React.JSX.Element;
+export default function SpineView({ dom, skeleton, atlas, skin, preserveDrawingBuffer, spineWebComponentSrc, ...rest }: SpineViewProps): React.JSX.Element;
 //# sourceMappingURL=index.d.ts.map
