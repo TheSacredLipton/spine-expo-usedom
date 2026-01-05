@@ -25,7 +25,7 @@ Add a `postinstall` script to your `package.json` to copy the Spine Web Componen
 ```json
 {
   "scripts": {
-    "postinstall": "mkdir -p public/spine && cp node_modules/@esotericsoftware/spine-webcomponents/dist/iife/spine-webcomponents.min.js public/spine/"
+    "postinstall": "cp node_modules/@esotericsoftware/spine-webcomponents/dist/iife/spine-webcomponents.min.js public/"
   }
 }
 ```
@@ -41,7 +41,7 @@ npm run postinstall
 Add the copied spine script to your `.gitignore` to avoid committing it.
 
 ```
-public/spine/spine-webcomponents.min.js
+public/spine-webcomponents.min.js
 ```
 
 ## 💻 Usage

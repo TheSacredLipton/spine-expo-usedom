@@ -9,7 +9,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "expo lint",
-    "postinstall": "mkdir -p public/spine && cp node_modules/@esotericsoftware/spine-webcomponents/dist/iife/spine-webcomponents.min.js public/spine/"
+    "postinstall": "cp node_modules/@esotericsoftware/spine-webcomponents/dist/iife/spine-webcomponents.min.js public/"
   },
   "dependencies": {
     "spine-expo-usedom": "file:..",

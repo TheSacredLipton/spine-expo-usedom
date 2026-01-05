@@ -43,4 +43,4 @@ app-example
 /android
 
 # Generated spine webcomponents
-example/public/spine/spine-webcomponents.min.js
+example/public/spine-webcomponents.min.js

@@ -32,7 +32,7 @@ export default function SpineView({
     atlas,
     skin,
     preserveDrawingBuffer = true,
-    spineWebComponentSrc = '/spine/spine-webcomponents.min.js',
+    spineWebComponentSrc = '/spine-webcomponents.min.js',
     ...rest
 }: SpineViewProps) {
     // window.location.origin を使って絶対パスを生成
