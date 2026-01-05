@@ -96,6 +96,28 @@ export default function App() {
 | `preserveDrawingBuffer` | `boolean`                                     | `true`       | Whether to preserve the drawing buffer.                      |
 | `dom`                   | `DOMProps`                                    | `undefined`  | Props passed to the underlying Expo DOM Component container. |
 
-## 📝 License
+## �️ Development & Publishing
+
+### Build
+
+```bash
+npm run build
+```
+
+### Publish to npm
+
+1. Update version:
+
+```bash
+npm version patch # or minor, major
+```
+
+2. Publish (build runs automatically):
+
+```bash
+npm publish
+```
+
+## �📝 License
 
 This project is licensed under the MIT License.
