@@ -1,7 +1,6 @@
 'use dom';
 
 import React, { useEffect } from 'react';
-import '@esotericsoftware/spine-webcomponents';
 
 export interface SpineViewProps {
     dom?: import('expo/dom').DOMProps;
@@ -21,6 +20,8 @@ export interface SpineViewProps {
     preserveDrawingBuffer?: boolean;
     /** Raw assets data for embedding */
     rawData?: string;
+    /** Path to the spine-webcomponents.min.js file */
+    spineWebComponentSrc?: string;
     /** Any other attributes for spine-skeleton */
     [key: string]: any;
 }
@@ -31,6 +32,7 @@ export default function SpineView({
     atlas,
     skin,
     preserveDrawingBuffer = true,
+    spineWebComponentSrc = '/spine/spine-webcomponents.min.js',
     ...rest
 }: SpineViewProps) {
     // window.location.origin を使って絶対パスを生成
@@ -47,11 +49,26 @@ export default function SpineView({
 
     const absoluteSkeleton = getAbsolutePath(skeleton);
     const absoluteAtlas = getAbsolutePath(atlas);
+    const absoluteSpineWebComponentSrc = getAbsolutePath(spineWebComponentSrc);
 
     useEffect(() => {
         console.log('Current URL:', window.location.href);
         console.log('Spine assets paths (absolute):', { skeleton: absoluteSkeleton, atlas: absoluteAtlas });
-    }, []);
+
+        if ((window as any).spine) return;
+
+        // Prevent duplicate script loading
+        if (document.querySelector(`script[src="${absoluteSpineWebComponentSrc}"]`)) return;
+
+        const script = document.createElement('script');
+        script.src = absoluteSpineWebComponentSrc;
+        script.async = true;
+        script.onload = () => {
+            console.log('Spine Web Components loaded');
+        };
+        script.onerror = (e) => console.error('Failed to load Spine script', e);
+        document.head.appendChild(script);
+    }, [absoluteSpineWebComponentSrc]);
 
     // skin="default" の場合、Spine Web Components でエラーになる場合があるため除外する
     // また、React 19以降ではCustom Elementのプロパティとして渡される際、文字列のままだと

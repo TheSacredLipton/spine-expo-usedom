@@ -12,8 +12,36 @@ Run **Spine Web Components** in React Native (iOS/Android) using Expo's **DOM Co
 
 ## 📦 Installation
 
+### 1. Install dependencies
+
 ```bash
-npm install spine-expo-usedom
+npm install spine-expo-usedom @esotericsoftware/spine-webcomponents
+```
+
+### 2. Configure `postinstall` script
+
+Add a `postinstall` script to your `package.json` to copy the Spine Web Components library to your `public` folder. This is required for the component to load the necessary scripts dynamically.
+
+```json
+{
+  "scripts": {
+    "postinstall": "mkdir -p public/spine && cp node_modules/@esotericsoftware/spine-webcomponents/dist/iife/spine-webcomponents.min.js public/spine/"
+  }
+}
+```
+
+Run the script manually to copy the file:
+
+```bash
+npm run postinstall
+```
+
+### 3. Update `.gitignore`
+
+Add the copied spine script to your `.gitignore` to avoid committing it.
+
+```
+public/spine/spine-webcomponents.min.js
 ```
 
 ## 💻 Usage

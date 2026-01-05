@@ -8,7 +8,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "postinstall": "mkdir -p public/spine && cp node_modules/@esotericsoftware/spine-webcomponents/dist/iife/spine-webcomponents.min.js public/spine/"
   },
   "dependencies": {
     "spine-expo-usedom": "file:..",
@@ -40,6 +41,7 @@
     "react-native-worklets": "0.5.1"
   },
   "devDependencies": {
+    "@esotericsoftware/spine-webcomponents": "^4.2.96",
     "@types/react": "~19.1.0",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~10.0.0",
